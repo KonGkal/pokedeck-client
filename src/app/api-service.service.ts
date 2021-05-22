@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http'
 
 export interface Pokemon {
   id: number;
@@ -16,10 +18,23 @@ const pokemons: Pokemon[] = [
   providedIn: 'root'
 })
 export class ApiServiceService {
+  private apiUrl: string = 'https://pokeapi.co/api/v2/';
+  constructor(private http:HttpClient) { }
 
-  constructor() { }
+  getAll(): Promise<Pokemon[]> {
+    return new Promise((resolve,reject)=>{
+      this.http.get(this.apiUrl+'pokemon?limit=20').toPromise().then((data:any)=>{
+        const toWait = data.results.map((result:any)=>{
+          return this.http.get(result.url).toPromise();
+        })
+        Promise.all(toWait).then((something:any)=>{
+          console.log('something',something)
+          resolve(something)
+        })
+        
+      })
 
-  getAll(): Pokemon[] {
-    return pokemons;
+    })
+
   }
 }

@@ -7,6 +7,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { PokeDetailsComponent } from './poke-details/poke-details.component';
 import { PokeListComponent } from './poke-list/poke-list.component';
 import { PokeCardComponent } from './poke-card/poke-card.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { PokeCardComponent } from './poke-card/poke-card.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

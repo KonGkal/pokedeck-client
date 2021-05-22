@@ -18,7 +18,9 @@ export class PokeDetailsComponent implements OnInit {
     const idString = this.route.snapshot.paramMap.get('id');
     if (idString !== null){
       let id = parseInt(idString)
-      this.pokemon = this.api.getAll().find(p=> p.id === id);
+      this.api.getAll().then(pokemons=>{
+        this.pokemon = pokemons.find(p=> p.id === id)
+      });
     }
   }
 
