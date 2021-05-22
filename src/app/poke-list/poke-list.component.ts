@@ -1,11 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-const pokemons = [
-  {id: 1, name: 'asd'},
-  {id: 2, name: 'sdfgd'},
-  {id: 3, name: '345g34'},
-  {id: 4, name: 'fntyuy'},
-]
+import {ApiServiceService, Pokemon} from '../api-service.service'
 
 @Component({
   selector: 'app-poke-list',
@@ -13,10 +7,11 @@ const pokemons = [
   styleUrls: ['./poke-list.component.scss']
 })
 export class PokeListComponent implements OnInit {
-
-  constructor() { }
+  pokemons: Pokemon[];
+  constructor(private api: ApiServiceService) { }
 
   ngOnInit(): void {
+    this.pokemons = this.api.getAll();
   }
 
 }
