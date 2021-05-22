@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import {ApiServiceService, Pokemon} from '../api-service.service'
 
 @Component({
   selector: 'app-poke-details',
@@ -6,10 +8,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./poke-details.component.scss']
 })
 export class PokeDetailsComponent implements OnInit {
-
-  constructor() { }
+  pokemon: Pokemon;
+  constructor(
+    private route: ActivatedRoute,
+    private api: ApiServiceService
+    ) { }
 
   ngOnInit(): void {
+    const idString = this.route.snapshot.paramMap.get('id');
+    if (idString !== null){
+      let id = parseInt(idString)
+      this.pokemon = this.api.getAll().find(p=> p.id === id);
+    }
   }
 
 }
