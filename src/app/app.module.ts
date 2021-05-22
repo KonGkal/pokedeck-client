@@ -8,6 +8,7 @@ import { PokeDetailsComponent } from './poke-details/poke-details.component';
 import { PokeListComponent } from './poke-list/poke-list.component';
 import { PokeCardComponent } from './poke-card/poke-card.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PokeEvolutionsComponent } from './poke-evolutions/poke-evolutions.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { HttpClientModule } from '@angular/common/http';
     DashboardComponent,
     PokeDetailsComponent,
     PokeListComponent,
-    PokeCardComponent
+    PokeCardComponent,
+    PokeEvolutionsComponent
   ],
   imports: [
     BrowserModule,
