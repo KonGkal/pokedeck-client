@@ -14,13 +14,10 @@ export class PokeDetailsComponent implements OnInit {
     private api: ApiServiceService
     ) { }
 
-  ngOnInit(): void {
-    const idString = this.route.snapshot.paramMap.get('id');
-    if (idString !== null){
-      let id = parseInt(idString)
-      this.api.getOne(id).then(pokemon=>{
-        this.pokemon = pokemon;
-      });
+  async ngOnInit(): Promise<void> {
+    const id = this.route.snapshot.paramMap.get('id');
+    if (id !== null) {
+      this.pokemon = await this.api.getOne(id);
     }
   }
 

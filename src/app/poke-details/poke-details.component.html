@@ -1,39 +1,49 @@
-<div *ngIf="pokemon">
-  <img src="" alt="fff">
-  <h1>{{pokemon.name}}</h1>
-  <p>There is a plant seed on its back right from the day this Pokémon is born. The seed slowly grows larger.</p>
-  <div>
-    <p>height {{pokemon.height}}</p>
-    <p>category: Seed?</p>
-    <p>weight {{pokemon.weight}}</p>
-    <p>abilities {{pokemon.abilities[0].ability.name}}</p>
-    <p>gender male+female?</p>
-  </div>
-  <div>
-    <h3>type</h3>
-    <div class="poke-types">
-      <div *ngFor="let type of pokemon.types">{{type.type.name}}</div>
-    </div>
-  </div>
-  <div>
-    <h3>weaknesses</h3>
-    <div clas="row">
-      <h4>fire?</h4>
-      <h4>physic?</h4>
-      <h4>flying?</h4>
-      <h4>ice?</h4>
-    </div>
-  </div>
-  <div class="stats-container">
-    <h3>stats</h3>
-    <div class="stats-chart-container">
-      <div *ngFor="let stat of pokemon.stats" class="col">
-        <div class="chart">{{stat.base_stat}}</div>
-        <h3 class="chart-label">{{stat.stat.name}}</h3>
+<div *ngIf="pokemon" class="details-container">
+  <div class="col">
+    <h1>{{pokemon.name}} <span>#{{pokemon.id | number:'3.0'}}</span></h1>
+    <div class="row">
+      <div class="col">
+        <img [src]="pokemon.sprites.other['official-artwork'].front_default" alt="fff">
+        <div class="stats-chart">
+          <h3>stats</h3>
+          <div class="chart-container row">
+            <div *ngFor="let stat of pokemon.stats" class="col chart-bar-container">
+              <div class="chart-bar col">
+                <div class="chart-bar-piece" *ngFor="let index of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]">---</div>
+              </div>
+              <div>{{stat.base_stat}}</div>
+              <span class="chart-label">{{stat.stat.name}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <p>There is a plant seed on its back right from the day this Pokémon is born. The seed slowly grows larger.</p>
+        <div class="poke-info-container row">
+          <div class="col">
+            <h3>height</h3>
+            <p>{{pokemon.height}}</p>
+            <h3>weight</h3>
+            <p>{{pokemon.weight}}</p>
+            <h3>gender</h3>
+            <p>male+female?</p>
+          </div>
+          <div class="col">
+            <h3>category</h3>
+            <p>Seed?</p>
+            <h3>abilities</h3>
+            <p>{{pokemon.abilities[0].ability.name}}</p>
+          </div>
+        </div>
+        <div>
+          <h3>Type</h3>
+          <div class="poke-types row">
+            <div class="poke-type-badge" *ngFor="let type of pokemon.types">{{type.type.name}}</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  <div class="evolutions-container">
-    
-  </div>
+  
+  <app-poke-evolutions></app-poke-evolutions>
 </div>

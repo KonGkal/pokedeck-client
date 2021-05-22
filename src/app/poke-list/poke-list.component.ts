@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ApiServiceService, Pokemon} from '../api-service.service'
+import { ApiServiceService, Pokemon } from '../api-service.service'
 
 @Component({
   selector: 'app-poke-list',
@@ -10,10 +10,8 @@ export class PokeListComponent implements OnInit {
   pokemons: Pokemon[];
   constructor(private api: ApiServiceService) { }
 
-  ngOnInit(): void {
-    this.api.getAll().then(pokemons=>{
-      this.pokemons = pokemons
-    });
+  async ngOnInit(): Promise<void> {
+    this.pokemons = await this.api.getAll();
   }
 
 }

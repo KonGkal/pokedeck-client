@@ -1,0 +1,64 @@
+.poke-info-container{
+  background-color: #30A7D7;
+  justify-content: space-evenly;
+  h3 {
+    color: white;
+  }
+}
+
+.poke-type-badge{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 1.5em;
+  width: 6em;
+  background-color: #B97FC9;
+  color: white;
+  border-radius: 0.25em;
+  margin-right: 0.5em;
+  text-transform: capitalize;
+}
+
+h1 {
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.details-container{
+  padding: 0 15em;
+}
+
+img {
+  width: 25em;
+  height: 25em;
+  border-radius: 0.5em;
+  background-color: lightgray;
+}
+
+.row .col{
+  width:50%;
+}
+
+.stats-chart{
+  background-color: gray;
+  .chart-container{
+    justify-content: center;
+    .chart-bar-container{
+      // height: 10em;
+      width: 3em;
+      padding: 0 0.1em;
+      .chart-bar{
+        background-color: gray;
+        // height: 8em;
+        .chart-bar-piece{
+          height: 0.5em;
+          background-color: white;
+          margin-top: 0.1em;
+        }
+      }
+      span{
+        font-size: 0.8em;
+      }
+    }
+  }
+}

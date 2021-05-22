@@ -4,8 +4,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { PokeDetailsComponent } from './poke-details/poke-details.component';
 
 const routes: Routes = [
-  {path: 'details/:id', component: PokeDetailsComponent},
-  {path: '', component: DashboardComponent},
+  { path: 'details/:id', component: PokeDetailsComponent },
+  { path: '', component: DashboardComponent }
 ];
 
 @NgModule({

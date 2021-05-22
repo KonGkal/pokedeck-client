@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiServiceService, Pokemon } from '../api-service.service'
+    
+      
 
 @Component({
   selector: 'app-poke-evolutions',
@@ -6,10 +9,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./poke-evolutions.component.scss']
 })
 export class PokeEvolutionsComponent implements OnInit {
+  pokemons: Pokemon[];
+  constructor(private api: ApiServiceService) { }
 
-  constructor() { }
-
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+    this.pokemons = await this.api.getEvolutions(1)
   }
 
 }
