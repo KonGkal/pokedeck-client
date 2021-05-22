@@ -1,3 +1,10 @@
 <li>
-  <a [routerLink]="'details/'+pokemon.id">{{pokemon.name}}</a>
+  <a [routerLink]="'details/'+pokemon.id">
+    <img [src]="pokemon.sprites.other['official-artwork'].front_default" alt="asdsdgsfg">
+    <h4>#{{pokemon.id}}</h4>
+    <h3>{{pokemon.name}}</h3>
+    <div class="poke-types">
+      <div *ngFor="let type of pokemon.types">{{type.type.name}}</div>
+    </div>
+  </a>
 </li>
