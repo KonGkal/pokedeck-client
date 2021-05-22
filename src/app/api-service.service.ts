@@ -37,4 +37,18 @@ export class ApiServiceService {
     })
 
   }
+
+  getOne(id: number): Promise<Pokemon> {
+    return new Promise((resolve,reject)=>{
+      this.http.get(`${this.apiUrl}pokemon/${id}`)
+      .toPromise()
+      .then((data:any)=>{
+        console.log('data',data)
+        resolve(data)
+      })
+      .catch(err=>{
+        console.log(err)
+      })
+    })
+  }
 }
